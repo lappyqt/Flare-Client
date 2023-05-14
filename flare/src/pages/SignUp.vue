@@ -80,8 +80,8 @@ const handleSubmit = async () => {
     const formValidated = await v$.value.$validate();
 
     if (formValidated) {
-        await authService.create(formData.email, formData.username, formData.password);
         router.push('/confirm');
+        await authService.create(formData.email, formData.username, formData.password);
     } 
 }
 
