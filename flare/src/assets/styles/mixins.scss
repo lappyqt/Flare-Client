@@ -1,0 +1,33 @@
+@mixin no-border-outline {
+    border: none;
+    outline: none;
+}
+
+@mixin grid-display-center {
+    display: grid;
+    place-items: center;
+}
+
+@mixin set-size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin set-display-flex($align, $justify) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin set-font($family, $size, $weight) {
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+}
+
+@mixin set-position-absolute($left, $top) {
+    position: absolute;
+    left: $left;
+    top: $top;
+    transform: translate(-$left, -$top);   
+}

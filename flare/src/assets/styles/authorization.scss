@@ -1,0 +1,201 @@
+@import 'mixins.scss';
+@import 'variables.scss';
+
+
+::placeholder {
+    color: rgb(220, 220, 220);
+}
+
+.authorization-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('../assets/img/back.png');
+    background-position: center center;
+
+    .return-back {
+        position: absolute;
+        z-index: 1;
+        top: 30px;
+        left: 30px;
+        padding: 6px 16px;
+        padding-left: 25px;
+        border-radius: 14px;
+        background-color: rgb(34, 34, 34);
+        background-image: url('../assets/img/arrow-white.svg');
+        background-repeat: no-repeat;
+        background-position: 10px center;
+        cursor: pointer;
+
+        .text {
+            color: rgb(255, 255, 255);
+            font-size: 15px;
+        }
+    }
+
+    .authorization-form {
+        width: 360px;
+        height: 450px;
+        position: relative;
+        display: grid;
+        place-content: center;
+        border-radius: 16px;
+        background-color: rgb(34, 34, 34);
+        box-sizing: border-box;
+        row-gap: 7px;
+
+        .top {
+            width: 80%;
+            text-align: center;
+            position: absolute;
+            top: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            .app-title {
+                color: $app-accent-color;
+                @include set-font($primary-font-family, 21px, 500);
+            }
+
+            .tagline {
+                color: rgb(250, 250, 250);
+                @include set-font($primary-font-family, 15px, 400);
+            }
+        }
+
+        .step-container {
+            width: 310px;
+            display: grid;
+            row-gap: 7px;
+        }
+    }
+
+    input {
+        width: 100%;
+        color: rgb(255, 255, 255);
+        padding: 8.5px 0;
+        padding-left: 10px;
+        padding-right: 10px;
+        outline: none;
+        text-align: center;
+        background-color: rgb(52, 52, 52);
+        border: 1px solid rgb(77, 77, 77);
+        border-radius: 12px;
+        box-sizing: border-box;
+
+        @include set-font($primary-font-family, 14px, 400);
+    }
+
+    .continue-button {
+        width: 100%;
+        padding: 8.5px 0;
+        box-sizing: border-box;
+        color: rgb(255, 255, 255);
+        background-color: rgb(40, 40, 40);
+        border: 1px solid rgb(77, 77, 77);
+        margin-top: 10px;
+        border-radius: 12px;
+        cursor: pointer;
+
+        @include set-font($primary-font-family, 14px, 400);
+    }
+
+    .steps {
+        display: flex;
+        column-gap: 10px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 20px;
+
+        .step {
+            width: 25px;
+            height: 5px;
+            background-color: gray;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .selected {
+            background-color: white;
+        }
+    }
+
+    .conformation-form {
+        width: 340px;
+        color: rgb(255, 255, 255);
+        background-color: rgb(34, 34, 34);
+        padding: 30px 60px;
+        border-radius: 12px;
+
+        .message {
+            text-align: center;
+            margin-bottom: 30px;
+            @include set-font($primary-font-family, 14px, 400);
+        }
+    }
+
+    .error-container {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        background-color: rgb(34, 34, 34);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 12px;
+
+        .error-message {
+            @include set-font($primary-font-family, 14px, 400);
+        }
+
+        .error-message::first-letter {
+            text-transform: capitalize;
+        }
+    }
+
+    .alt-auth-link {
+        position: absolute;
+        bottom: 30px;
+        backdrop-filter: blur(200px);
+        padding: 7px 20px;
+        border-radius: 30px;
+        
+        @include set-font($primary-font-family, 15px, 400);
+
+        .text, a {
+            color: rgb(255, 255, 255);
+        }
+    }
+}
+
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+}
+
+@media screen and (max-width: 501px) {
+    .authorization-container {
+        background: rgb(34, 34, 34);
+
+        .return-back {
+            top: 15px;
+            left: 15px;
+        }
+
+        .error-container {
+            z-index: 1000;
+            right: initial;
+            bottom: 100px;
+        }
+    }
+}
